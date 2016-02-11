@@ -26,6 +26,13 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
+  ENV.contentSecurityPolicy = {
+    'connect-src': "'self' *",
+    'img-src': "'self' *",
+    'script-src': "'self' 'unsafe-eval' 'unsafe-inline' *",
+    'style-src': "'self' 'unsafe-inline' *",
+    'font-src': "'self' *",
+  };
 
   if (environment === 'test') {
     // Testem prefers this...

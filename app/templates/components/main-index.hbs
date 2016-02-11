@@ -1,0 +1,98 @@
+<nav class="top">
+  <a href="#" class="brand">Top Apps</a>
+  <a href="#" class="actions special-1">Delete This Watchlist</a>
+</nav>
+
+<div class="controls centered">
+  <div class="control">
+    <label>COMPARE BY REGION</label>
+    {{region-select value=selectedRegion}}
+  </div>
+  <div class="control">
+    <label>SELECTED COUNTRIES</label>
+    {{country-select value=selectedCountries region=selectedRegion}}
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+      <th colspan="2" class="download">
+        <i class="icons download"></i>
+        <span>Downloads</span>
+      </th>
+      <th colspan="4" class="revenue">
+        <i class="icons revenue"></i>
+        <span>Revenue</span>
+      </th>
+    </tr>
+    <tr>
+      <th>Graph</th>
+      <th class="ta-left">App Name</th>
+      <th>Price</th>
+      <th class="ms-value">Total</th>
+      <th class="ms-bar ta-left">Market Share</th>
+      <th class="ms-value">Total</th>
+      <th class="ms-bar ta-left">Market Share</th>
+      <th class="ta-right">Advertising %</th>
+      <th class="ta-right">In-app Purchase %</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each content as |row index|}}
+      <tr>
+        <td class="bg-gray ta-center fs-size-16">
+          <i class="fa fa-check-square fs-color-{{index}} cr-pointed"></i>
+        </td>
+        <td class="appname">
+          <div class="flex">
+            <div class="flex-body">
+              <dl>
+                <dt><a href="#">{{row.name}}</a></dt>
+                <dd><a href="#">{{row.company}}</a></dd>
+              </dl>
+              <aside class="aside-left">
+                <img src="/assets/images/{{row.icon}}" class="applogo">
+              </aside>
+              <aside class="aside-right">
+                <i class="fa fa-apple"></i>
+              </aside>
+            </div>
+          </div>
+        </td>
+        <td class="ta-center">{{row.price}}</td>
+        <td class="ms-value">{{row.downloads.total}}</td>
+        <td class="ms-bar">
+          {{progress-bar value=row.downloads.marketShare}}
+        </td>
+        <td class="ms-value">{{row.revenue.total}}</td>
+        <td class="ms-bar">
+          {{progress-bar value=row.revenue.marketShare}}
+        </td>
+        <td class="ta-right">{{row.revenue.adv}}</td>
+        <td class="ta-right">{{row.revenue.inapppurchase}}</td>
+        <td class="ta-center fs-size-14 fs-color-4">
+          <i class="fa fa-times-circle cr-pointed"></i>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+  <tfoot>
+    <tr>
+      <th colspan="3" class="bg-gray ta-right fs-lh-15">Watchlist Total</th>
+      <th class="bg-gray ta-right br-right-off fs-bold">12.6M</th>
+      <th class="bg-gray br-left-off"></th>
+      <th class="bg-gray ta-right br-right-off fs-bold">$4.1M</th>
+      <th class="bg-gray br-left-off" colspan="3"></th>
+    </tr>
+    <tr>
+      <th class="bg-gray" colspan="3">
+        <div>
+          <input type="text" class="fluent" placeholder="Add app...">
+        </div>
+      </th>
+      <th class="bg-gray" colspan="6"></th>
+    </tr>
+  </tfoot>
+</table>

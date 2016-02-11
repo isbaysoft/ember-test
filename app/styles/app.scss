@@ -1,0 +1,248 @@
+@import "reset";
+@import "mixins";
+@import "ab-select";
+@import "icons";
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
+
+body {
+  padding: 30px;
+  background: #f2f4f7;
+  font-family: 'Lato', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: underline;
+  }
+  &.special-1 {
+    color: #848EA1;
+    &:hover {
+      color: #DD3D2E;
+      text-decoration: none;
+    }
+  }
+}
+
+.main-container {
+  padding: 30px;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+nav.top {
+  height: 30px;
+  margin-bottom: 21px;
+  .brand {
+    font-size: 20px;
+    color: #555F77;
+  }
+  .actions {
+    font-size: 13px;
+    float: right;
+    line-height: 20px;
+  }
+}
+
+.container {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 23px 0px rgba(0,0,0,.35);
+  padding: 30px;
+  max-width: 1140px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.controls {
+  background: #fafbfc;
+  padding: 19px;
+  margin-bottom: 17px;
+  height: 91px;
+  box-sizing: border-box;
+  &.centered {
+    text-align: center;
+  }
+  .control {
+    display: inline-block;
+    margin-right: 15px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      color: #848EA1;
+      margin-bottom: 9px;
+    }
+  }
+}
+
+table {
+  width: 100%;
+  color: #555f77;
+  font-size: 12px;
+  font-weight: normal;
+
+  td, th {
+    border: 1px solid #E1E5EB;
+    vertical-align: middle;
+    box-sizing: border-box;
+    &.bar {
+      dl {
+        dt {
+          background-color: #fafbfc;
+          display: inline-block;
+        }
+        dd {
+          background-color: #ffffff;
+          display: inline-block;
+        }
+      }
+    }
+    &.ms-value {
+      background-color: #fafbfc;
+      border-right: none;
+      text-align: right;
+    }
+    &.ms-bar {
+      border-left: none;
+    }
+    &.bg-gray {
+      background-color: #fafbfc;
+    }
+    &.ta-center {
+      text-align: center;
+    }
+    &.ta-right {
+      text-align: right;
+    }
+    &.ta-left {
+      text-align: left;
+    }
+    &.br-left-off {
+      border-left: none;
+    }
+    &.br-right-off {
+      border-right: none;
+    }
+  }
+  th {
+    font-weight: bold;
+    padding: 8px 7px;
+    height: 30px;
+    &.download {
+      color: #0094FF;
+    }
+    &.revenue {
+      color: #6AB917;
+    }
+  }
+  td {
+    padding: 6px 7px;
+    height: 46px;
+    &.appname {
+      .flex {
+        display: flex;
+        flex-direction: column;
+        .flex-body {
+          display: flex;
+          flex: 1;
+          dl {
+            flex: 1;
+            width: 150px;
+            padding: 0 7px;
+            font-size: 12px;
+            line-height: 16px;
+            dt {
+              color: #0094FF;
+              @extend .ellipsis;
+            }
+            dd {
+              color: #ACB4C2;
+              @extend .ellipsis;
+            }
+          }
+          .aside-left {
+            flex: 0 0 0;
+            order: -1;
+          }
+          .aside-right {
+            flex: 0 0 0;
+            margin: auto;
+          }
+        }
+      }
+    }
+    &.ms-value {
+      font-weight: bold;
+    }
+  }
+  tfoot {
+    th, td {
+      height: 32px;
+    }
+  }
+}
+img.applogo {
+  width: 32px;
+  border-radius: 6px;
+}
+
+
+dl.progress {
+  dt.value {
+    height: 15px;
+  }
+  dd.bar {
+    height: 6px;
+    background-color: aqua;
+    position: relative;
+    > div {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: red;
+    }
+  }
+}
+
+.fs {
+  &-bold { font-weight: bold; }
+  &-size {
+    &-14 { font-size: 14px; }
+    &-16 { font-size: 16px; }
+  }
+  &-color {
+    &-0 { color: #0094FF; }
+    &-1 { color: #6AB917; }
+    &-2 { color: #EF5350; }
+    &-3 { color: #FFA726; }
+    &-3 { color: #848EA1; }
+  }
+}
+
+.cr-pointed {
+  cursor: pointer;
+}
+
+.pd-none {
+  padding: 0;
+}
+
+input[type="text"] {
+  height: 38px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #CED2DB;
+  border-radius: 3px;
+  padding: 0 10px;
+  &:focus { border: 1px solid #0094FF; }
+}

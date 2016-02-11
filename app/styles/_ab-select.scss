@@ -1,0 +1,114 @@
+.hovered-or-selected-non-multiselected-item {
+  background: #6A7387;
+  position: relative;
+  color: #FFFFFF;
+  z-index: 599;
+  i.fa {
+    color: #FFFFFF;
+  }
+}
+
+.ab-select {
+  position: relative;
+  .ab-select-choice {
+    span {
+      cursor: pointer;
+      display: block;
+      width: 100%;
+      color: #555F77;
+      padding: 0 32px 0 11px;
+      border: 1px solid rgba(170,170,170, .65);
+      white-space: nowrap;
+      background-color: #FFF;
+      line-height: 34px;
+      height: 32px;
+      overflow: hidden;
+      text-align: left;
+      text-overflow: ellipsis;
+      width: auto;
+      border-radius: 3px;
+      font-size: 14px;
+    }
+    &:after {
+      content: '';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      margin-top: -2.5px;
+      display: block;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: #acb4c2 transparent transparent transparent;
+
+    }
+  }
+  ul {
+    list-style: none;
+    text-align: left;
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #CED2DB;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+    min-width: 200px;
+    max-height: 322px;
+    overflow: scroll;
+    li {
+      color: #848484;
+      vertical-align: middle;
+      padding: 0 17px;
+      line-height: 40px;
+      background-color: #fff;
+      position: relative;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      &:hover {
+        @extend .hovered-or-selected-non-multiselected-item;
+      }
+      i.fa {
+        color: #0094FF;
+        margin-right: 6px;
+      }
+      &.disabled {
+        i, span { color: silver }
+      }
+    }
+  }
+  &:not(.multiselect) {
+    ul {
+      li {
+        &.selected {
+          @extend .hovered-or-selected-non-multiselected-item;
+        }
+      }
+    }
+  }
+  &.multiselect {
+    ul {
+      li {
+        &:hover {
+          background: #FAFBFC;
+          color: #555F77;
+          i.fa {
+            color: #0094FF;
+          }
+        }
+      }
+    }
+  }
+  &:not(.multiselect) {
+    ul {
+      li {
+        i.fa {
+          display: none;
+        }
+      }
+    }
+  }
+}

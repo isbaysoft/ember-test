@@ -1,0 +1,10 @@
+<div class="ab-select-choice" {{action 'toggleDropDown'}}>
+  <span>{{valueAsString}}</span>
+</div>
+{{#if isShowDropdown}}
+  <ul>
+    {{#each orderedContent as |item|}}
+      {{ember-select-option selected=selected option=item action='select' disableable=multiselect}}
+    {{/each}}
+  </ul>
+{{/if}}
